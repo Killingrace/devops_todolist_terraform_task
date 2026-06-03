@@ -9,21 +9,25 @@ variable "location" {
 }
 
 variable "path_to_ssh_key" {
-  type = string
+  type        = string
   description = "Path to your public ssh key on local machine"
 }
 
 variable "vm_size" {
-  type = string
+  type        = string
   description = "Virtual Machine Size"
 }
 
 variable "admin_username" {
-  type = string
+  type        = string
   description = "Admin Username"
 }
 
 variable "storage_account_name" {
-  type = string
+  type        = string
   description = "name of your storage account"
+}
+
+variable "dns_name" {
+  type = string
 }

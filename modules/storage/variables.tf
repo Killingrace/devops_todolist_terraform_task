@@ -28,7 +28,7 @@ variable "storage_account_replication_type" {
 
 variable "container_name" {
   type        = string
-  default = "task-artifacts"
+  default     = "task-artifacts"
   description = "Container name inside Storage Account"
 }
 

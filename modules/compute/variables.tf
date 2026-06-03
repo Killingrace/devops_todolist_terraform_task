@@ -4,7 +4,7 @@ variable "resource_group_name" {
 }
 
 variable "network_security_group_id" {
-  type = string
+  type        = string
   description = "Security Group ID"
 }
 
