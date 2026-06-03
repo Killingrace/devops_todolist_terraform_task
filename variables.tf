@@ -40,6 +40,7 @@ variable "admin_username" {
 
 variable "storage_account_name" {
   type        = string
+  default     = "defaultstaccn"
   description = "name of your storage account"
 }
 
