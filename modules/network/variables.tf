@@ -108,7 +108,7 @@ variable "pip_name" {
 
 variable "pip_allocation_method" {
   type        = string
-  default     = "Static"
+  default     = "Dynamic" # Static
   description = "Defines Allocation Method for public IP Could be Static or Dynamic"
 }
 
