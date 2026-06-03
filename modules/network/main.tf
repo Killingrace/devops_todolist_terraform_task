@@ -9,7 +9,7 @@ resource "azurerm_subnet" "default" {
   name                 = var.subnet_name
   resource_group_name  = var.resource_group_name
   virtual_network_name = azurerm_virtual_network.vnet.name
-  address_prefixes     = var.subname_address_prefixes
+  address_prefixes     = [var.subnet_address_prefix]
 }
 
 resource "azurerm_network_security_group" "nsg" {
@@ -33,8 +33,8 @@ resource "azurerm_network_security_group" "nsg" {
 }
 
 resource "random_integer" "pip_dns" {
-  min = 0
-  max = 999
+  min = 1000
+  max = 9999
 }
 resource "azurerm_public_ip" "pip" {
   name                = var.pip_name

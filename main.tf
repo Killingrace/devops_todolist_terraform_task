@@ -24,10 +24,12 @@ module "network" {
   source              = "./modules/network"
   resource_group_name = azurerm_resource_group.default.name
   location            = azurerm_resource_group.default.location
-  dns_label_prefix    = var.dns_label_prefix
-  dns_label           = var.dns_label
-  nsg_name            = var.nsg_name
-  pip_name            = var.pip_name
+  subnet_name         = var.subnet_name
+  dns_label_prefix    = var.dns_label
+  dns_custom_label    = var.dns_custom_label
+  subnet_address_prefix =  var.subnet_address_prefix
+  nsg_name            = var.network_security_group_name
+  pip_name            = var.public_ip_address_name
 }
 
 
@@ -39,7 +41,7 @@ module "computing" {
   subnet_id                 = module.network.subnet_id
   public_ip_address_id      = module.network.pip_id
   admin_username            = var.admin_username
-  path_to_ssh_key           = var.path_to_ssh_key
+  path_to_ssh_key           = var.ssh_key_public
   vm_size                   = var.vm_size
   network_security_group_id = module.network.network_security_group_id
 }

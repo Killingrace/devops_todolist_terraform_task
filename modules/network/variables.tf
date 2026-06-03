@@ -27,11 +27,9 @@ variable "subnet_name" {
   default = "default"
 }
 
-variable "subname_address_prefixes" {
-  type = list(string)
-  default = [
-    "10.0.0.0/24"
-  ]
+variable "subnet_address_prefix" {
+  type        = string
+  default     = "10.0.0.0/24"
   description = "Address Prefixes for subnet"
 }
 
@@ -120,7 +118,7 @@ variable "dns_label_prefix" {
   description = "Default DNS label prefix that will be concatenated with random number"
 }
 
-variable "dns_label" {
+variable "dns_custom_label" {
   type    = string
   default = null
 }

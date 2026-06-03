@@ -10,9 +10,9 @@ variable "location" {
   description = "location for all resources"
 }
 
-variable "path_to_ssh_key" {
+variable "ssh_key_public" {
   type        = string
-  default = "~/.ssh/id_rsa.pub"
+  default     = "~/.ssh/id_rsa.pub"
   description = "Path to your public ssh key on local machine"
 }
 
@@ -20,6 +20,16 @@ variable "vm_size" {
   type        = string
   default     = "Standard_B1s"
   description = "Virtual Machine Size"
+}
+
+variable "subnet_name" {
+  type    = string
+  default = "default"
+}
+
+variable "subnet_address_prefix" {
+  type    = string
+  default = "10.0.0.0/24"
 }
 
 variable "admin_username" {
@@ -34,6 +44,11 @@ variable "storage_account_name" {
 }
 
 variable "dns_label" {
+  type    = string
+  default = "matetask"
+}
+
+variable "dns_custom_label" {
   type    = string
   default = null
 }
@@ -50,12 +65,12 @@ variable "vnet_address_space" {
   ]
 }
 
-variable "nsg_name" {
+variable "network_security_group_name" {
   type    = string
   default = "defaultnsg"
 }
 
-variable "pip_name" {
+variable "public_ip_address_name" {
   type    = string
   default = "linuxboxpip"
 }
