@@ -2,13 +2,17 @@ resource "azurerm_network_interface" "nic" {
   name                = local.nic_name
   resource_group_name = var.resource_group_name
   location            = var.location
-
   ip_configuration {
     name                          = var.ip_configuration_name
     subnet_id                     = var.subnet_id
     private_ip_address_allocation = var.private_ip_address_allocation
     public_ip_address_id          = var.public_ip_address_id
   }
+}
+
+resource "azurerm_network_interface_security_group_association" "name" {
+  network_interface_id = azurerm_network_interface.nic.id
+  network_security_group_id = var.network_security_group_id
 }
 
 resource "azurerm_ssh_public_key" "name" {

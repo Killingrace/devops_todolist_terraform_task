@@ -3,6 +3,11 @@ variable "resource_group_name" {
   description = "Name of Resouce Group"
 }
 
+variable "network_security_group_id" {
+  type = string
+  description = "Security Group ID"
+}
+
 variable "location" {
   type        = string
   description = "Resources location"

@@ -2,7 +2,7 @@ output "vnet_id" {
   value = azurerm_virtual_network.vnet.id
 }
 
-output "pip_dns" {
+output "pip_dns_label" {
   value = azurerm_public_ip.pip.domain_name_label
 }
 
@@ -16,4 +16,9 @@ output "pip_ip" {
 
 output "pip_id" {
   value = azurerm_public_ip.pip.id
+}
+
+
+output "network_security_group_id" {
+ value = azurerm_network_security_group.nsg.id
 }
