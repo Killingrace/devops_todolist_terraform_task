@@ -19,17 +19,17 @@ resource "azurerm_resource_group" "default" {
 }
 
 module "network" {
-  vnet_name           = var.vnet_name
-  vnet_address_space  = var.vnet_address_space
-  source              = "./modules/network"
-  resource_group_name = azurerm_resource_group.default.name
-  location            = azurerm_resource_group.default.location
-  subnet_name         = var.subnet_name
-  dns_label_prefix    = var.dns_label
-  dns_custom_label    = var.dns_custom_label
-  subnet_address_prefix =  var.subnet_address_prefix
-  nsg_name            = var.network_security_group_name
-  pip_name            = var.public_ip_address_name
+  vnet_name             = var.vnet_name
+  vnet_address_space    = var.vnet_address_space
+  source                = "./modules/network"
+  resource_group_name   = azurerm_resource_group.default.name
+  location              = azurerm_resource_group.default.location
+  subnet_name           = var.subnet_name
+  dns_label_prefix      = var.dns_label
+  dns_custom_label      = var.dns_custom_label
+  subnet_address_prefix = var.subnet_address_prefix
+  nsg_name              = var.network_security_group_name
+  pip_name              = var.public_ip_address_name
 }
 
 
