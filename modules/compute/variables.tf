@@ -89,7 +89,7 @@ variable "os_offer" {
 
 variable "os_sku" {
   type        = string
-  default     = "22_04-lts-gen2" # server-gen1
+  default     = "server-gen1"
   description = "Specifies the SKU of the image used to create the virtual machines. Changing this forces a new resource to be created."
 }
 
