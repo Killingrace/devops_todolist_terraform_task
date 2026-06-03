@@ -26,9 +26,9 @@ variable "storage_account_replication_type" {
   description = "Replication for Storage Account"
 }
 
-variable "container_name" {
-  type        = string
-  default     = "task-artifacts"
+variable "container_names" {
+  type        = list(string)
+  default     = ["task-artifacts", "tfstate"]
   description = "Container name inside Storage Account"
 }
 

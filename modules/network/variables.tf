@@ -87,6 +87,17 @@ variable "security_rules" {
       "source_address_prefix" : "*"
       "destination_address_prefix" : "*"
     },
+    {
+      "name" : "TODOAPP"
+      "priority" : 103
+      "direction" : "Inbound"
+      "access" : "Allow"
+      "protocol" : "Tcp"
+      "source_port_range" : "*"
+      "destination_port_range" : "8080"
+      "source_address_prefix" : "*"
+      "destination_address_prefix" : "*"
+    },
   ]
   description = "Map of security rules for network security group"
 }
@@ -109,7 +120,7 @@ variable "dns_label_prefix" {
   description = "Default DNS label prefix that will be concatenated with random number"
 }
 
-variable "dns_name" {
+variable "dns_label" {
   type    = string
   default = null
 }

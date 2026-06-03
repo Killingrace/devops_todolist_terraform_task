@@ -6,6 +6,10 @@ output "pip_dns_label" {
   value = azurerm_public_ip.pip.domain_name_label
 }
 
+output "pip_dns_name" {
+  value = azurerm_public_ip.pip.fqdn
+}
+
 output "subnet_id" {
   value = azurerm_subnet.default.id
 }

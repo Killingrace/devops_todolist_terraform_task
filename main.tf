@@ -19,10 +19,15 @@ resource "azurerm_resource_group" "default" {
 }
 
 module "network" {
+  vnet_name           = var.vnet_name
+  vnet_address_space  = var.vnet_address_space
   source              = "./modules/network"
   resource_group_name = azurerm_resource_group.default.name
   location            = azurerm_resource_group.default.location
-  dns_name            = var.dns_name
+  dns_label_prefix    = var.dns_label_prefix
+  dns_label           = var.dns_label
+  nsg_name            = var.nsg_name
+  pip_name            = var.pip_name
 }
 
 
@@ -30,6 +35,7 @@ module "computing" {
   source                    = "./modules/compute"
   resource_group_name       = azurerm_resource_group.default.name
   location                  = azurerm_resource_group.default.location
+  vm_name                   = var.vm_name
   subnet_id                 = module.network.subnet_id
   public_ip_address_id      = module.network.pip_id
   admin_username            = var.admin_username
