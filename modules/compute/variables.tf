@@ -1,0 +1,84 @@
+variable "resource_group_name" {
+  type        = string
+  description = "Name of Resouce Group"
+}
+
+variable "location" {
+  type        = string
+  description = "Resources location"
+}
+
+variable "ip_configuration_name" {
+  type    = string
+  default = "internal"
+}
+
+variable "subnet_id" {
+  type        = string
+  description = "Subnet id in what network interface will be located"
+}
+
+variable "private_ip_address_allocation" {
+  type        = string
+  default     = "Dynamic"
+  description = "Network interface private ID allocation method. Could be Static or Dynamic"
+}
+
+variable "public_ip_address_id" {
+  type        = string
+  description = "Piblic IP adress Id"
+}
+
+variable "vm_size" {
+  type        = string
+  default     = "Standard_B1s"
+  description = "Virtual Machine Size"
+}
+
+variable "admin_username" {
+  type        = string
+  description = "Admin username for Virtual Machine"
+}
+
+
+variable "os_disk_caching" {
+  type        = string
+  default     = "ReadWrite"
+  description = "Type of Caching which should be used for the Internal OS Disk. Possible Values: None, ReadOnly, ReadWrite"
+}
+
+
+variable "os_disk_storage_account_type" {
+  type        = string
+  default     = "Standard_LRS"
+  description = "Type of Storage Account which should back this the Internal OS Disk. Possible values are Standard_LRS, StandardSSD_LRS, Premium_LRS, StandardSSD_ZRS and Premium_ZRS"
+}
+
+variable "path_to_ssh_key" {
+  type        = string
+  description = "Path on local machine to ssh key"
+}
+
+variable "os_publisher" {
+  type        = string
+  default     = "canonical"
+  description = "Specifies the publisher of the image used to create the virtual machines. Changing this forces a new resource to be created."
+}
+
+variable "os_offer" {
+  type        = string
+  default     = "ubuntu-22_04-lts"
+  description = "Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created."
+}
+
+variable "os_sku" {
+  type        = string
+  default     = "server-gen1"
+  description = "Specifies the SKU of the image used to create the virtual machines. Changing this forces a new resource to be created."
+}
+
+variable "os_version" {
+  type        = string
+  default     = "latest"
+  description = "Specifies the version of the image used to create the virtual machines. Changing this forces a new resource to be created."
+}

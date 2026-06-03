@@ -24,3 +24,15 @@ module "network" {
   location            = azurerm_resource_group.default.location
   # dns_name            = "myowndnsname"
 }
+
+
+module "name" {
+  source               = "./modules/compute"
+  resource_group_name  = azurerm_resource_group.default.name
+  location             = azurerm_resource_group.default.location
+  subnet_id            = module.network.subnet_id
+  public_ip_address_id = module.network.pip_id
+  admin_username       = "azureuser"
+  path_to_ssh_key      = "~/.ssh/id_ed25519.pub"
+  vm_size              = "Standard_D2s_v3"
+}
