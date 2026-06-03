@@ -29,6 +29,17 @@ variable "public_ip_address_id" {
   description = "Piblic IP adress Id"
 }
 
+variable "ssh_key_name" {
+  type    = string
+  default = "linuxboxsshkey"
+}
+
+variable "vm_name" {
+  type    = string
+  default = "matebox"
+}
+
+
 variable "vm_size" {
   type        = string
   default     = "Standard_B1s"
@@ -81,4 +92,43 @@ variable "os_version" {
   type        = string
   default     = "latest"
   description = "Specifies the version of the image used to create the virtual machines. Changing this forces a new resource to be created."
+}
+
+variable "extension_name" {
+  type        = string
+  default     = "customscript"
+  description = "Name of Virtual Machine Extension"
+}
+
+variable "extension_publisher" {
+  type        = string
+  default     = "Microsoft.Azure.Extensions"
+  description = "Extension Publisher Name"
+}
+
+variable "extension_type" {
+  type        = string
+  default     = "CustomScript"
+  description = "Type of extension"
+}
+
+variable "extension_type_handler_version" {
+  type        = string
+  default     = "2.0"
+  description = "version of extension handler"
+}
+
+
+variable "extension_settings" {
+  type = object(
+    {
+      fileUris         = list(string)
+      commandToExecute = string
+    }
+  )
+  default = {
+    fileUris         = ["https://raw.githubusercontent.com/Killingrace/devops_todolist_terraform_task/main/install-app.sh"]
+    commandToExecute = "./install-app.sh"
+  }
+  description = "json data for custom script"
 }

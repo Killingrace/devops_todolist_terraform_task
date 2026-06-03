@@ -22,7 +22,6 @@ module "network" {
   source              = "./modules/network"
   resource_group_name = azurerm_resource_group.default.location
   location            = azurerm_resource_group.default.location
-  # dns_name            = "myowndnsname"
 }
 
 
